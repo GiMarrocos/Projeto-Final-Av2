@@ -1,33 +1,42 @@
+package com.tomorrow.tomorrow.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Entity
 @Table
-
 public class Student {
+    
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long student_id; 
 
-    @Colunn (nullable = false, length = 45)
+    @Column (nullable = false, length = 45)
     private String name; 
 
-    @Colunn (nullable = false, lenght = 20)
+    @Column (nullable = false, length = 20)
     private String phone; 
 
-    @Colunn (nullable = false, lenght = 45)
+    @Column (nullable = false, length = 45)
     private String address; 
 
-   @Colunn (nullable = false, lenght = 20)
+   @Column (nullable = false, length = 20)
     private String cpf; 
 
     public Student () {
 
     }
 
-    Public Student (Long student_id, String name, String phone, Steing address, String cpf) {
+    public Student(Long student_id, String name, String phone, String address, String cpf) {
         this.student_id = student_id;
-        this.name = name; 
-        this.phone = phone; 
-        this.address = address; 
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
         this.cpf = cpf;
     }
 
@@ -63,11 +72,13 @@ public class Student {
         this.cpf = cpf;
     }
 
-    public String getStudent_id(){
+    public Long getStudent_id() {
         return student_id;
     }
 
-    public void setStudent_id (String student_id){
+    public void setStudent_id(Long student_id) {
         this.student_id = student_id;
     }
+
 }
+
