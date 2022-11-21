@@ -11,7 +11,7 @@ import com.tomorrow.tomorrow.repositories.StudentRepository;
 
 
 @Service
-public class StudentServices {
+public class StudentService {
     
     @Autowired
     private StudentRepository studentRepository;
@@ -25,7 +25,7 @@ public class StudentServices {
         return student.get();
     }
 
-    public Student createNewStudent(Student student){
+    public Student save(Student student){
         return studentRepository.save(student);
     }
 
