@@ -18,7 +18,7 @@ import com.tomorrow.tomorrow.services.TeacherService;
 public class TeacherController {
     
     @Autowired
-    TeacherService service;
+    private TeacherService service;
 
     @GetMapping(path = {"/list"})
     public ResponseEntity<List<Teacher>> findAll(){
