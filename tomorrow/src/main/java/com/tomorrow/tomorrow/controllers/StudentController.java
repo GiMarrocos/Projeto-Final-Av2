@@ -14,7 +14,7 @@ import com.tomorrow.tomorrow.services.StudentService;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-@RequestMapping(path = "/student")
+@RequestMapping(path = "/students")
 public class StudentController {
 
     @Autowired
