@@ -11,8 +11,8 @@ import java.util.Objects;
 @AllArgsConstructor
 @Getter
 @Setter
-@Entity
 @Table
+@Entity
 public class Student implements Serializable {
     private static final long serializable = 1L;
 
@@ -32,6 +32,9 @@ public class Student implements Serializable {
 
     @Column(nullable = false, length = 20)
     private String cpf;
+
+    @Column(nullable = false)
+    private Long team_id;
 
 
     @Override
