@@ -37,6 +37,7 @@ public class TeacherController {
         return ResponseEntity.created(uri).body(service.save(teacher));
     }
 
+    @PutMapping(path = "update/id/{id}")//rever
     public ResponseEntity<Teacher> updateTeacher(@RequestBody Teacher teacher,@PathVariable Long id) throws DataFormatException{
         teacher.setTeacher_id(id);
         service.updateTeacher(teacher);
@@ -46,7 +47,7 @@ public class TeacherController {
 
     @DeleteMapping(path = {"/{id}"})
     public ResponseEntity<?> deleteStudent(@PathVariable long id){
-        service.deleteTeacher(id);;
+        service.deleteTeacher(id);
         return ResponseEntity.noContent().build();
     }
 
