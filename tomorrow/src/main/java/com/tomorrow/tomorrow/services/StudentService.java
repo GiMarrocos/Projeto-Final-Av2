@@ -49,7 +49,7 @@ public class StudentService extends FormatDataInput {
 
     //update
     public void updateStudent(Student student) throws DataFormatException {
-        Student new_student_data = studentRepository.getReferenceById(student.getStudent_id());
+        Student new_student_data = studentRepository.getReferenceById(student.getId_student());
         new_student_data = update_DATA(new_student_data, student);
         if(student.getAddress() == null && student.getPhone() == null){
             throw new DataFormatException("No change data has been entered");
