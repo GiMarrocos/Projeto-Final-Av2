@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import com.tomorrow.tomorrow.entities.Student;
 import com.tomorrow.tomorrow.repositories.StudentRepository;
 
-
 @Service
 public class StudentService extends FormatDataInput {
     
