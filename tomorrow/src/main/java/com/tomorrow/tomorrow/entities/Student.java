@@ -14,9 +14,9 @@ import java.util.Objects;
 @Entity
 @Table
 public class Student implements Serializable {
+
     private static final long serializable = 1L;
-
-
+	
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id_student;
@@ -32,7 +32,6 @@ public class Student implements Serializable {
 
     @Column(nullable = false, length = 20)
     private String cpf;
-
 
     @Override
     public boolean equals(Object o) {

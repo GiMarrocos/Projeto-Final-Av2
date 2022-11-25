@@ -34,7 +34,7 @@ public class Course {
     private Double value;
 
     @Column(nullable = false)
-    private Byte monday;
+    private Integer monday;
 
     @Column(nullable = false)
     private Byte tuesday;
@@ -50,7 +50,6 @@ public class Course {
 
     @Column(nullable = false)
     private Byte saturday;
-
 
     @Override
     public boolean equals(Object o) {

@@ -1,12 +1,12 @@
 package com.tomorrow.tomorrow.services;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.zip.DataFormatException;
-
 import com.tomorrow.tomorrow.entities.exceptions.EntityObjectNotFoundException;
 import com.tomorrow.tomorrow.entities.exceptions.CourseCreateFailureException;
 import com.tomorrow.tomorrow.entities.util.FormatDataInput;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.zip.DataFormatException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -27,10 +27,10 @@ public class CourseService extends FormatDataInput {
 
 		try {
 
-            course.setCourseName(NAME_FORMAT(course.getCourseName()));
+            course.setCourseName(course.getCourseName());
 			course.setClassWorkload(course.getClassWorkload());
 			course.setTotalWorkload(course.getTotalWorkload());
-			course.setShift(NAME_FORMAT(course.getShift())); 
+			course.setShift(course.getShift()); 
 			course.setValue(course.getValue()); 
 			course.setMonday(course.getMonday()); 
 			course.setTuesday(course.getTuesday()); 
@@ -38,19 +38,19 @@ public class CourseService extends FormatDataInput {
 			course.setThursday(course.getThursday()); 
 			course.setFriday(course.getFriday());
 			course.setSaturday(course.getSaturday()); 
-			
 
         } catch (RuntimeException violationException) {
 			
             throw new CourseCreateFailureException("Course registration failure");
         }
+
         return courseRepository.save(course);
 	} 
 	
 	//read (by id)
     public Course findById(Long id){
-        Optional<Course> student = courseRepository.findById(id);
-        return student.orElseThrow(() -> new EntityObjectNotFoundException("Course not found! Id:" + id +
+        Optional<Course> course = courseRepository.findById(id);
+        return course.orElseThrow(() -> new EntityObjectNotFoundException("Course not found! Id:" + id +
                 "Cause type: " + Course.class.getName()));
     }
 
@@ -63,7 +63,7 @@ public class CourseService extends FormatDataInput {
     public void updateCourse(Course course) throws DataFormatException {
         Course new_course_data = courseRepository.getReferenceById(course.getCourse_id());
         new_course_data = update_DATA(new_course_data, course);
-        if(course.getCourseName() == null){
+        if(course.getCourseName() == null && course.getShift() == null){
             throw new DataFormatException("No change data has been entered");
         }else{
             courseRepository.save(new_course_data);
@@ -85,15 +85,15 @@ public class CourseService extends FormatDataInput {
 	//data change method
 	protected Course update_DATA(Course course, Course new_data){
 		//permission to change phone and address only
-		if(new_data.getCourseName() != null) {
+		if(new_data.getCourseName() != null && new_data.getShift() == null) {
 
 			course.setCourseName(new_data.getCourseName());
 
-		}else if (new_data.getCourseName() != null){
+		}else if (new_data.getCourseName() != null && new_data.getShift() == null){
 
 			course.setCourseName(new_data.getCourseName());
 
-		}else if (new_data.getCourseName() != null){
+		}else if (new_data.getCourseName() != null && new_data.getShift() == null){
 
 			course.setCourseName(new_data.getCourseName());
 		}

@@ -20,7 +20,6 @@ public class StudentController {
     @Autowired
     private StudentService service;
 
-
     @GetMapping(path = "/list")
     public ResponseEntity<List<Student>> findAll(){
         return ResponseEntity.ok().body(service.findAll());

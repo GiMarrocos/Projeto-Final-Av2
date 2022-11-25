@@ -13,11 +13,11 @@ import com.tomorrow.tomorrow.entities.Course;
 import com.tomorrow.tomorrow.services.CourseService;
 
 @RestController 
-@RequestMapping(path = "/course")
+@RequestMapping(path = "/courses")
 public class CourseController {
 	
 	@Autowired
-	CourseService service;
+	private CourseService service;
 
 	@GetMapping(path = {"/list"})
     public ResponseEntity<List<Course>> findAll(){
@@ -30,12 +30,13 @@ public class CourseController {
     }
 
 	@PostMapping(path = "/create")
-    public ResponseEntity<Course> createNewTeacher(@RequestBody Course course){
+    public ResponseEntity<Course> createNewCourse(@RequestBody Course course){
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-        .buildAndExpand(course.getCourse_id()).toUri();
+				.buildAndExpand(course.getCourse_id()).toUri();
         return ResponseEntity.created(uri).body(service.save(course));
     }
 
+	@PutMapping(path = "update/id/{id}")
     public ResponseEntity<Course> updateCourse(@RequestBody Course course,@PathVariable Long id) throws DataFormatException{
         course.setCourse_id(id);
         service.updateCourse(course);
