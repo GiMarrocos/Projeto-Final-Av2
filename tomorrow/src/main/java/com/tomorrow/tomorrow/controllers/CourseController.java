@@ -40,7 +40,7 @@ public class CourseController {
     public ResponseEntity<Course> updateCourse(@RequestBody Course course,@PathVariable Long id) throws DataFormatException{
         course.setCourse_id(id);
         service.updateCourse(course);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.noContent().build(); 
 
     }
 
