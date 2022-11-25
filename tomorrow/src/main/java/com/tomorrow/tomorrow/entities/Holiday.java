@@ -8,7 +8,6 @@ import javax.persistence.Table;
 import java.util.Date;
 import java.util.Objects;
 
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
