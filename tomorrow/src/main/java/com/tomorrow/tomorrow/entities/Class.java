@@ -5,18 +5,16 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@Table
 @Entity
-public class Team  implements Serializable {
+@Table
+public class Class implements Serializable {
     private static final long serializable = 1L;
 
     @Id
@@ -24,13 +22,10 @@ public class Team  implements Serializable {
     private Long team_id;
 
     @Column(nullable = false)
-    private Set<Long> students_id = new HashSet<>();
+    private Integer course_id;
 
     @Column(nullable = false)
-    private Long course_id;
-
-    @Column(nullable = false)
-    private Long teacher_id;
+    private Integer teacher_id;
 
     @Column(nullable = false, precision = 10, scale = 2)
     private Double value;
@@ -40,7 +35,7 @@ public class Team  implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Team team = (Team) o;
+        Class team = (Class) o;
         return Objects.equals(team_id, team.team_id);
     }
 
