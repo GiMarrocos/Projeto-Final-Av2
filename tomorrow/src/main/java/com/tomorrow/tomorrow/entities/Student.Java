@@ -34,7 +34,7 @@ public class Student implements Serializable {
     private String cpf;
 
     @Column(nullable = false)
-    private Long team_id;
+    private Long team;
 
 
     @Override
