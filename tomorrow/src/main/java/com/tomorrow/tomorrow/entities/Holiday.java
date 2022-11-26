@@ -3,19 +3,22 @@ package com.tomorrow.tomorrow.entities;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Table
+@Entity
 public class Holiday {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long holiday_id;
 
     @Column(nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy", timezone = "GMT")
