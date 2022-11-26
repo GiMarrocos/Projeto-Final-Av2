@@ -1,25 +1,28 @@
 package com.tomorrow.tomorrow.entities;
 
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Objects;
 
-
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@Entity
 @Table
+@Entity
 public class Course {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private Long course_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long courseId;
 
     @Column(nullable = false, length = 45)
-    private String courseName;
+    private String course_name;
 
     @Column(nullable = false, precision = 10, scale = 2)
     private Double classWorkload;
@@ -27,29 +30,29 @@ public class Course {
     @Column(nullable = false, precision = 10, scale = 2)
     private Double totalWorkload;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false)
     private String shift;
 
     @Column(nullable = false, precision = 10, scale = 2)
     private Double value;
 
     @Column(nullable = false)
-    private Byte monday;
+    private Boolean monday;
 
     @Column(nullable = false)
-    private Byte tuesday;
+    private Boolean tuesday;
 
     @Column(nullable = false)
-    private Byte wednesday;
+    private Boolean wednesday;
 
     @Column(nullable = false)
-    private Byte thursday;
+    private Boolean thursday;
 
     @Column(nullable = false)
-    private Byte friday;
+    private Boolean friday;
 
     @Column(nullable = false)
-    private Byte saturday;
+    private Boolean saturday;
 
 
     @Override
@@ -57,11 +60,11 @@ public class Course {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Course course = (Course) o;
-        return Objects.equals(course_id, course.course_id);
+        return Objects.equals(courseId, course.courseId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(course_id);
+        return Objects.hash(courseId);
     }
 }
