@@ -31,16 +31,20 @@ public class ClassController {
     @PostMapping(path = "/create")
     public ResponseEntity<Class> createNewTeam(@RequestBody Class team){
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(team.getTeam_id()).toUri();
+                .buildAndExpand(team.getTeam_Id()).toUri();
         return ResponseEntity.created(uri).body(service.save(team));
     }
 
     @PutMapping(path = "/update/id/{id}")
     public ResponseEntity<Class> updateTeam(@RequestBody Class team, @PathVariable Long id){
-        team.setTeam_id(id);
-        service.update(team);
-        return ResponseEntity.noContent().build();
+        team.setTeam_Id(id);
+
+        return ResponseEntity.ok().body(service.update(team));
     }
 
-
+    @DeleteMapping(path = "/delete/id/{id}")
+    public ResponseEntity<Class> delete(@PathVariable Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

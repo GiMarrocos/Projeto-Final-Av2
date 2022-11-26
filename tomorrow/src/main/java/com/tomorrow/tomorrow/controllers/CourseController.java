@@ -31,13 +31,13 @@ public class CourseController {
     @PostMapping(path = "/create")
     public ResponseEntity<Course> createNewTeacher(@RequestBody Course course){
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(course.getCourse_id()).toUri();
+                .buildAndExpand(course.getCourseId()).toUri();
         return ResponseEntity.created(uri).body(service.save(course));
     }
 
     @PutMapping(path = "/update/id/{id}")
     public ResponseEntity<Course> updateCourse(@RequestBody Course course,@PathVariable Long id) throws DataFormatException {
-        course.setCourse_id(id);
+        course.setCourseId(id);
         service.updateCourse(course);
         return ResponseEntity.noContent().build();
     }

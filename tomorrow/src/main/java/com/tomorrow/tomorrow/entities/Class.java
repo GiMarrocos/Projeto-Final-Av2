@@ -18,10 +18,10 @@ public class Class {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long team_id;
+    private Long team_Id;
 
     @Column(nullable = false)
-    private Long student_id;
+    private Long course_id;
 
     @Column(nullable = false)
     private Long teacher_id;
@@ -29,16 +29,17 @@ public class Class {
     @Column(nullable = false)
     private Double value;
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Class aClass = (Class) o;
-        return Objects.equals(team_id, aClass.team_id);
+        return Objects.equals(team_Id, aClass.team_Id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(team_id);
+        return Objects.hash(team_Id);
     }
 }
