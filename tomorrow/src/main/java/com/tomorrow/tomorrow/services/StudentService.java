@@ -38,7 +38,7 @@ public class StudentService extends FormatDataInput {
     //read (by id)
     public Student findById(Long id){
         Optional<Student> student = studentRepository.findById(id);
-        return student.orElseThrow(() -> new EntityObjectNotFoundException("Student not found! Id:" + id +
+        return student.orElseThrow(() -> new StudentCreateFailureException("Student not found! Id:" + id +
                 "Cause type: " + Student.class.getName()));
     }
 

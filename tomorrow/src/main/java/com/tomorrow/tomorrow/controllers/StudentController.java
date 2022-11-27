@@ -14,7 +14,7 @@ import com.tomorrow.tomorrow.services.StudentService;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-@RequestMapping(path = "/student")
+@RequestMapping(path = "/students")
 public class StudentController {
 
     @Autowired
@@ -27,7 +27,7 @@ public class StudentController {
     }
 
     @GetMapping(path = {"/find/id/{id}"})
-    public ResponseEntity<?> findById(@PathVariable Long id){
+    public ResponseEntity<Student> findById(@PathVariable Long id){
         return ResponseEntity.ok().body(service.findById(id));
     }
 
@@ -46,7 +46,7 @@ public class StudentController {
 
     }
 
-    @DeleteMapping(path = {"/{id}"})
+    @DeleteMapping(path = {"/delete/id/{id}"})
     public ResponseEntity<?> deleteStudent(@PathVariable long id){
         service.deleteStudent(id);
         return ResponseEntity.noContent().build();
