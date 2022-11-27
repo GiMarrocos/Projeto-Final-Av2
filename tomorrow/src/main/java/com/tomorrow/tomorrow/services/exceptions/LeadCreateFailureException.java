@@ -1,4 +1,4 @@
-package com.tomorrow.tomorrow.entities.exceptions;
+package com.tomorrow.tomorrow.services.exceptions;
 
 public class LeadCreateFailureException extends RuntimeException{
 
