@@ -1,7 +1,7 @@
 package com.tomorrow.tomorrow.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
+import com.tomorrow.tomorrow.entities.enums.KindOfHoliday;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -27,4 +27,21 @@ public class Holiday {
 
     @Column(nullable = false)
     private Integer description;
+
+
+    public Holiday(String holiday_id, Date holidayDate, KindOfHoliday description) {
+        this.holiday_id = holiday_id;
+        this.holidayDate = holidayDate;
+        setDescription(description);
+    }
+
+    public KindOfHoliday getDescription() {
+        return KindOfHoliday.valueOf(description);
+    }
+
+    public void setDescription(KindOfHoliday description) {
+        if(description != null) {
+            this.description = description.getStatus_code();
+        }
+    }
 }
