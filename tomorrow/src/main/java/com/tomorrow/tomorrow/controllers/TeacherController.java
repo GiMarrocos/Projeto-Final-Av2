@@ -20,13 +20,14 @@ public class TeacherController {
     @Autowired
     private TeacherService service;
 
+
     @GetMapping(path = {"/list"})
     public ResponseEntity<List<Teacher>> findAll(){
         return ResponseEntity.ok().body(service.findAll());
     }
 
     @GetMapping(path = {"/find/id/{id}"})
-    public ResponseEntity<?> findById(@PathVariable Long id){
+    public ResponseEntity<Teacher> findById(@PathVariable Long id){
         return ResponseEntity.ok().body(service.findById(id));
     }
 
@@ -42,7 +43,6 @@ public class TeacherController {
         teacher.setTeacher_id(id);
         service.updateTeacher(teacher);
         return ResponseEntity.noContent().build();
-
     }
 
     @DeleteMapping(path = {"/{id}"})
@@ -50,6 +50,4 @@ public class TeacherController {
         service.deleteTeacher(id);
         return ResponseEntity.noContent().build();
     }
-
-
 }
