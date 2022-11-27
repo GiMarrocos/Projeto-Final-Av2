@@ -25,9 +25,9 @@ public class LeadService extends FormatDataInput {
         try {
             lead.setName(NAME_FORMAT(lead.getName()));
             lead.setPhone(NAME_FORMAT(lead.getPhone()));
-            lead.getDateRegister();
+            lead.setDateRegister(DATE_FORMAT());
             lead.setStatus_2(NAME_FORMAT(lead.getStatus_2()));
-            lead.getNewDateContact();
+            lead.setNewDateContact(DATE_FORMAT());
             lead.setObservation(NAME_FORMAT(lead.getObservation()));
         } catch (RuntimeException violationException) {
             throw new LeadCreateFailureException("Lead registration failure");
@@ -69,16 +69,17 @@ public class LeadService extends FormatDataInput {
 
     protected Lead update_DATA(Lead lead, Lead new_Data) {
         if (new_Data.getPhone() != null && new_Data.getObservation() != null && new_Data.getStatus_2() != null) {
-            lead.setPhone(new_Data.getPhone());
+            lead.setPhone(NUMBER_FORMAT(new_Data.getPhone()));
+            lead.setObservation(NAME_FORMAT(new_Data.getObservation()));
+            lead.setStatus_2(NAME_FORMAT(new_Data.getStatus_2()));
+        }else if(new_Data.getPhone() != null){
+            lead.setPhone(NUMBER_FORMAT(new_Data.getPhone()));
+        }else if (new_Data.getObservation() != null) {
             lead.setObservation(new_Data.getObservation());
-            lead.setStatus_2(new_Data.getStatus_2());
-        }else if(new_Data.getPhone() != null && new_Data.getObservation() == null && new_Data.getStatus_2() == null){
-            lead.setPhone(new_Data.getPhone());
-        }else if (new_Data.getObservation() != null && new_Data.getPhone() == null && new_Data.getStatus_2() == null ) {
-            lead.setObservation(new_Data.getObservation());
-        }else if (new_Data.getStatus_2() != null && new_Data.getPhone() == null && new_Data.getStatus_2() == null ) {
-            lead.setStatus_2(new_Data.getStatus_2());
+        }else if (new_Data.getStatus_2() != null) {
+            lead.setStatus_2(NAME_FORMAT(new_Data.getStatus_2()));
         }
         return lead;
     }
+
 }
