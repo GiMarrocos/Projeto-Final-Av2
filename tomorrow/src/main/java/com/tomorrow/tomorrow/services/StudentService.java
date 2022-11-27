@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.zip.DataFormatException;
 
 import com.tomorrow.tomorrow.entities.exceptions.EntityObjectNotFoundException;
-import com.tomorrow.tomorrow.entities.exceptions.StudentCreateFailureException;
+import com.tomorrow.tomorrow.services.exceptions.StudentCreateFailureException;
 import com.tomorrow.tomorrow.entities.util.FormatDataInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

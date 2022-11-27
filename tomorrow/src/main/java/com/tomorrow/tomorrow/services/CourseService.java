@@ -7,7 +7,7 @@ import java.util.zip.DataFormatException;
 import com.tomorrow.tomorrow.entities.Course;
 import com.tomorrow.tomorrow.entities.exceptions.CourseNotFoundException;
 import com.tomorrow.tomorrow.entities.exceptions.EntityObjectNotFoundException;
-import com.tomorrow.tomorrow.entities.exceptions.CourseCreateFailureException;
+import com.tomorrow.tomorrow.services.exceptions.CourseCreateFailureException;
 import com.tomorrow.tomorrow.entities.util.FormatDataInput;
 
 import org.springframework.beans.factory.annotation.Autowired;

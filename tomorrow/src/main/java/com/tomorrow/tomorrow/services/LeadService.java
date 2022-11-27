@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.zip.DataFormatException;
 
+import com.tomorrow.tomorrow.services.exceptions.LeadCreateFailureException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import com.tomorrow.tomorrow.entities.Lead;
 import com.tomorrow.tomorrow.entities.exceptions.EntityObjectNotFoundException;
-import com.tomorrow.tomorrow.entities.exceptions.LeadCreateFailureException;
 import com.tomorrow.tomorrow.entities.util.FormatDataInput;
 import com.tomorrow.tomorrow.repositories.LeadRepository;
 
