@@ -25,7 +25,6 @@ public class Lead {
     @Column(nullable = false, length = 20)
     private String phone;
 
-
     @Column(nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss", timezone = "GMT")
     private Date dateRegister;

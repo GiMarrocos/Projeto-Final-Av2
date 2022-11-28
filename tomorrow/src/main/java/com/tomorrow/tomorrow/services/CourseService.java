@@ -38,8 +38,11 @@ public class CourseService extends FormatDataInput {
             course.setFriday(course.getFriday());
             course.setSaturday(course.getSaturday());
         } catch (RuntimeException violationException) {
+
             throw new CourseCreateFailureException("Course registration failure");
+			
         }
+
         return courseRepository.save(course);
     }
 
