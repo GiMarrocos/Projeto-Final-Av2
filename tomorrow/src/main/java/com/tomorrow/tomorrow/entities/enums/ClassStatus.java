@@ -5,9 +5,9 @@ import lombok.Getter;
 @Getter
 public enum ClassStatus {
 
-    SCHEDULED(1),
-    CANCELED(2),
-    REMARKED(3);
+    SCHEDULED(0),
+    CANCELED(1),
+    REMARKED(2);
 
     private int status_code;
 
