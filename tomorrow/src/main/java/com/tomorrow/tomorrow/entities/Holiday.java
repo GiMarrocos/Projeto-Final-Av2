@@ -13,13 +13,9 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
 @Table
 public class Holiday {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String holiday_id;
 
     @Column(nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy", timezone = "GMT")
@@ -29,8 +25,8 @@ public class Holiday {
     private Integer description;
 
 
-    public Holiday(String holiday_id, Date holidayDate, KindOfHoliday description) {
-        this.holiday_id = holiday_id;
+    public Holiday(Date holidayDate, KindOfHoliday description) {
+
         this.holidayDate = holidayDate;
         setDescription(description);
     }
