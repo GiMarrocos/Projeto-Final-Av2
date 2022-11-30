@@ -7,6 +7,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Date;
 
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -15,6 +16,7 @@ import java.util.Date;
 @Entity
 public class Lead {
 
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_lead;

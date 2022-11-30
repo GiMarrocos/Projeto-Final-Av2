@@ -1,6 +1,7 @@
 package com.tomorrow.tomorrow.entities;
 
 import com.tomorrow.tomorrow.entities.enums.ClassStatus;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,9 +10,11 @@ import javax.persistence.Table;
 
 @Getter
 @Setter
+@EqualsAndHashCode
 @Table
 public class ClassDay {
 
+    @EqualsAndHashCode.Include
     @Column(nullable = false)
     private Long course_id;
 

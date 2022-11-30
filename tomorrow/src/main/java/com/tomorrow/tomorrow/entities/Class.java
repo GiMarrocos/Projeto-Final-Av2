@@ -1,45 +1,37 @@
 package com.tomorrow.tomorrow.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.Objects;
+import java.util.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Getter
 @Setter
 @Entity
 @Table
 public class Class {
 
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long team_Id;
+    private Long id;
 
     @Column(nullable = false)
     private Long course_id;
 
-    @Column(nullable = false)
-    private Long teacher_id;
+    @ManyToOne
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
 
     @Column(nullable = false)
     private Double value;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "team")
+    private Set<Student> students = new HashSet<>();
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Class aClass = (Class) o;
-        return Objects.equals(team_Id, aClass.team_Id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(team_Id);
-    }
 }

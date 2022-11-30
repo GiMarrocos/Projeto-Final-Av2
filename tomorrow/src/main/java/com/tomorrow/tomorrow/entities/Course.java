@@ -2,14 +2,12 @@ package com.tomorrow.tomorrow.entities;
 
 
 import com.tomorrow.tomorrow.entities.enums.ClassStatus;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Objects;
 
+@EqualsAndHashCode
 @NoArgsConstructor
 @Getter
 @Setter
@@ -17,6 +15,7 @@ import java.util.Objects;
 @Entity
 public class Course {
 
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long courseId;
@@ -53,6 +52,8 @@ public class Course {
 
     @Column(nullable = false)
     private Integer saturday;
+
+    //many-to-many
 
 
     public Course(Long courseId, String course_name, Double classWorkload, Double totalWorkload, String shift,
@@ -121,16 +122,4 @@ public class Course {
         this.saturday = saturday.getStatus_code();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Course course = (Course) o;
-        return Objects.equals(courseId, course.courseId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(courseId);
-    }
 }
