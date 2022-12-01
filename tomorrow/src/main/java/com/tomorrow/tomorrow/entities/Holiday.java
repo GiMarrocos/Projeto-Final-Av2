@@ -1,19 +1,21 @@
 package com.tomorrow.tomorrow.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.*;
+import com.tomorrow.tomorrow.entities.enums.KindOfHoliday;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
 @Getter
 @Setter
 @Table
 public class Holiday {
+
 
     @Column(nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy", timezone = "GMT")
@@ -23,16 +25,19 @@ public class Holiday {
     private Integer description;
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Holiday holiday = (Holiday) o;
-        return Objects.equals(holidayDate, holiday.holidayDate);
+    public Holiday(Date holidayDate, KindOfHoliday description) {
+
+        this.holidayDate = holidayDate;
+        setDescription(description);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(holidayDate);
+    public KindOfHoliday getDescription() {
+        return KindOfHoliday.valueOf(description);
+    }
+
+    public void setDescription(KindOfHoliday description) {
+        if(description != null) {
+            this.description = description.getStatus_code();
+        }
     }
 }

@@ -5,7 +5,8 @@ import java.util.Optional;
 import java.util.zip.DataFormatException;
 
 import com.tomorrow.tomorrow.entities.exceptions.EntityObjectNotFoundException;
-import com.tomorrow.tomorrow.entities.exceptions.StudentCreateFailureException;
+import com.tomorrow.tomorrow.entities.exceptions.StudentNotFoundException;
+import com.tomorrow.tomorrow.services.exceptions.StudentCreateFailureException;
 import com.tomorrow.tomorrow.entities.util.FormatDataInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -14,6 +15,9 @@ import org.springframework.stereotype.Service;
 
 import com.tomorrow.tomorrow.entities.Student;
 import com.tomorrow.tomorrow.repositories.StudentRepository;
+
+import javax.management.loading.ClassLoaderRepository;
+
 
 @Service
 public class StudentService extends FormatDataInput {
@@ -37,7 +41,7 @@ public class StudentService extends FormatDataInput {
     //read (by id)
     public Student findById(Long id){
         Optional<Student> student = studentRepository.findById(id);
-        return student.orElseThrow(() -> new EntityObjectNotFoundException("Student not found! Id:" + id +
+        return student.orElseThrow(() -> new StudentNotFoundException("Student not found! Id:" + id +
                 "Cause type: " + Student.class.getName()));
     }
 

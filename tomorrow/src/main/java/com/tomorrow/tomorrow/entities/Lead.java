@@ -2,20 +2,21 @@ package com.tomorrow.tomorrow.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@AllArgsConstructor
+@EqualsAndHashCode
 @NoArgsConstructor
-@Data
+@AllArgsConstructor
+@Getter
+@Setter
 @Table
 @Entity
 public class Lead {
 
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_lead;
@@ -25,7 +26,6 @@ public class Lead {
 
     @Column(nullable = false, length = 20)
     private String phone;
-
 
     @Column(nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss", timezone = "GMT")

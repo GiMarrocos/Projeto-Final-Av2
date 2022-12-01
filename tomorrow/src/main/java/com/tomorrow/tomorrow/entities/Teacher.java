@@ -1,21 +1,25 @@
 package com.tomorrow.tomorrow.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
+@Getter
+@Setter
 @Entity
 @Table
 public class Teacher {
 
+    @EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long teacher_id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 
     @Column(nullable = false, length =  45)
     private String name;
@@ -25,5 +29,10 @@ public class Teacher {
 
     @Column(nullable = false, precision = 10, scale = 2)
     private Double hourlyRate;
+
+    //OneToMany Membership
+    @OneToMany(mappedBy = "teacher_id", fetch = FetchType.LAZY)
+    private List<Class> classes = new ArrayList<>();
+
 
 }

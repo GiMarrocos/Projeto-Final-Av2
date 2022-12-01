@@ -1,6 +1,5 @@
 package com.tomorrow.tomorrow.controllers;
 
-
 import java.net.URI;
 import java.util.List;
 import java.util.zip.DataFormatException;
@@ -10,44 +9,44 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.tomorrow.tomorrow.entities.Teacher;
-import com.tomorrow.tomorrow.services.TeacherService;
+import com.tomorrow.tomorrow.entities.Lead;
+import com.tomorrow.tomorrow.services.LeadService;
 
 @RestController
-@RequestMapping(path = "/teacher")
-public class TeacherController {
+@RequestMapping(path = "/lead")
+public class LeadController {
     
     @Autowired
-    private TeacherService service;
+    private LeadService service;
 
-
-    @GetMapping(path = {"/list"})
-    public ResponseEntity<List<Teacher>> findAll(){
+    @GetMapping(path = "/list")
+    public ResponseEntity<List<Lead>> findAll(){
         return ResponseEntity.ok().body(service.findAll());
     }
 
     @GetMapping(path = {"/find/id/{id}"})
-    public ResponseEntity<Teacher> findById(@PathVariable Long id){
+    public ResponseEntity<?> findById(@PathVariable Long id){
         return ResponseEntity.ok().body(service.findById(id));
     }
 
     @PostMapping(path = "/create")
-    public ResponseEntity<Teacher> createNewTeacher(@RequestBody Teacher teacher){
+    public ResponseEntity<Lead> createNewLead(@RequestBody Lead lead){
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-        .buildAndExpand(teacher.getId()).toUri();
-        return ResponseEntity.created(uri).body(service.save(teacher));
+        .buildAndExpand(lead.getId_lead()).toUri();
+        return ResponseEntity.created(uri).body(service.create(lead));
     }
 
-    @PutMapping(path = "update/id/{id}")//rever
-    public ResponseEntity<Teacher> updateTeacher(@RequestBody Teacher teacher,@PathVariable Long id) throws DataFormatException{
-        teacher.setId(id);
-        service.updateTeacher(teacher);
+    @PutMapping(path = "update/id/{id}")
+    public ResponseEntity<Lead> updateLead(@RequestBody Lead lead,@PathVariable Long id) throws DataFormatException{
+        lead.setId_lead(id);
+        service.updateLead(lead);
         return ResponseEntity.noContent().build();
+
     }
 
     @DeleteMapping(path = {"/{id}"})
     public ResponseEntity<?> deleteStudent(@PathVariable long id){
-        service.deleteTeacher(id);
+        service.deleteLead(id);
         return ResponseEntity.noContent().build();
     }
 }

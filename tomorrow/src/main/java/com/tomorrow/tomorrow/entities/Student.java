@@ -4,21 +4,23 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
 
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 @Getter
 @Setter
+@Table(name = "Student", indexes = {
+        @Index(name = "idx_student_class_id",
+                columnList = "class_id")})
 @Entity
-@Table
 public class Student implements Serializable {
-
     private static final long serializable = 1L;
-	
+
+    @EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE)
     private Long id_student;
 
     @Column(nullable = false, length = 45)
@@ -33,16 +35,7 @@ public class Student implements Serializable {
     @Column(nullable = false, length = 20)
     private String cpf;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return Objects.equals(id_student, student.id_student);
-    }
+    @Column(nullable = false)
+    private Long class_id;
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id_student);
-    }
 }
