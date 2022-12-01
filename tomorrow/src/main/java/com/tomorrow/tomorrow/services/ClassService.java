@@ -7,6 +7,7 @@ import com.tomorrow.tomorrow.entities.exceptions.EntityObjectNotFoundException;
 import com.tomorrow.tomorrow.entities.exceptions.TeamNotFoundException;
 import com.tomorrow.tomorrow.entities.util.FormatDataInput;
 import com.tomorrow.tomorrow.repositories.ClassRepository;
+import com.tomorrow.tomorrow.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -14,12 +15,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ClassService extends FormatDataInput {
 
     @Autowired
     private ClassRepository classRepository;
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     public Class save(Class class_data){
         return classRepository.save(class_data);
@@ -36,14 +41,14 @@ public class ClassService extends FormatDataInput {
     }
 
     public Class update(Class team){
-        Class new_team_data = classRepository.getReferenceById(team.getTeam_Id());
-        if(team.getCourse_id() != null && team.getTeacher_id() != null){
+        Class new_team_data = classRepository.getReferenceById(team.getId());
+        if(team.getCourse_id() != null && team.getId() != null){
             new_team_data.setCourse_id(team.getCourse_id());
-            new_team_data.setTeacher_id(team.getTeacher_id());
-        }else if(team.getCourse_id() != null && team.getTeacher_id() == null){
+            new_team_data.setId(team.getId());
+        }else if(team.getCourse_id() != null && team.getId() == null){
             new_team_data.setCourse_id(team.getCourse_id());
-        }else if(team.getCourse_id() == null && team.getTeacher_id() != null){
-            new_team_data.setTeacher_id(team.getTeacher_id());
+        }else if(team.getCourse_id() == null && team.getId() != null){
+            new_team_data.setId(team.getId());
         }
         return classRepository.save(new_team_data);
     }
