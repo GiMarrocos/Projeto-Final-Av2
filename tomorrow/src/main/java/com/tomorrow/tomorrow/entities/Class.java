@@ -23,15 +23,11 @@ public class Class {
     @Column(nullable = false)
     private Long course_id;
 
-    @ManyToOne
-    @JoinColumn(name = "teacher_id")
-    private Teacher teacher;
+    @Column(nullable = false)
+    private Long teacher_id;
 
     @Column(nullable = false)
     private Double value;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "team")
-    private Set<Student> students = new HashSet<>();
-
+    //OneToMany Membership
 }
