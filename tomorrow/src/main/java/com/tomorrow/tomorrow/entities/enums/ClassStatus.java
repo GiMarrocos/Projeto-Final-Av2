@@ -7,7 +7,8 @@ public enum ClassStatus {
 
     SCHEDULED(0),
     CANCELED(1),
-    REMARKED(2);
+    REMARKED(2),
+    UNSCHEDULED(3);
 
     private int status_code;
 

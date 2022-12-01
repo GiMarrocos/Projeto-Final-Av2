@@ -5,7 +5,7 @@ import com.tomorrow.tomorrow.entities.enums.ClassStatus;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Objects;
+
 
 @EqualsAndHashCode
 @NoArgsConstructor
@@ -52,8 +52,6 @@ public class Course {
 
     @Column(nullable = false)
     private Integer saturday;
-
-    //many-to-many
 
 
     public Course(Long courseId, String course_name, Double classWorkload, Double totalWorkload, String shift,
