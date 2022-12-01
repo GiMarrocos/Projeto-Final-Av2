@@ -45,8 +45,8 @@ public class TeacherService extends FormatDataInput {
 
     //update
     public void updateTeacher(Teacher teacher) throws DataFormatException{
-        Teacher new_teacher_data = teacherRepository.getReferenceById(teacher.getTeacher_id());
-        if(!teacher.getHourlyRate().equals(null)) {
+        Teacher new_teacher_data = teacherRepository.getReferenceById(teacher.getId());
+        if(teacher.getHourlyRate() != null) {
             throw new DataFormatException("No change data has been entered");
         }else{
             new_teacher_data = update_DATA(new_teacher_data, teacher);

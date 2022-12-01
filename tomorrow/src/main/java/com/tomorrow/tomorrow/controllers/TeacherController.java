@@ -34,13 +34,13 @@ public class TeacherController {
     @PostMapping(path = "/create")
     public ResponseEntity<Teacher> createNewTeacher(@RequestBody Teacher teacher){
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-        .buildAndExpand(teacher.getTeacher_id()).toUri();
+        .buildAndExpand(teacher.getId()).toUri();
         return ResponseEntity.created(uri).body(service.save(teacher));
     }
 
     @PutMapping(path = "update/id/{id}")//rever
     public ResponseEntity<Teacher> updateTeacher(@RequestBody Teacher teacher,@PathVariable Long id) throws DataFormatException{
-        teacher.setTeacher_id(id);
+        teacher.setId(id);
         service.updateTeacher(teacher);
         return ResponseEntity.noContent().build();
     }
