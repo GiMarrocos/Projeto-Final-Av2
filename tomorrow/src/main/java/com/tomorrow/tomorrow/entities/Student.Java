@@ -1,11 +1,9 @@
 package com.tomorrow.tomorrow.entities;
 
 import lombok.*;
-import org.springframework.data.annotation.Reference;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
 
 @NoArgsConstructor
@@ -13,14 +11,16 @@ import java.util.Objects;
 @EqualsAndHashCode
 @Getter
 @Setter
-@Table
+@Table(name = "Student", indexes = {
+        @Index(name = "idx_student_class_id",
+                columnList = "class_id")})
 @Entity
 public class Student implements Serializable {
     private static final long serializable = 1L;
 
     @EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE)
     private Long id_student;
 
     @Column(nullable = false, length = 45)
@@ -35,9 +35,7 @@ public class Student implements Serializable {
     @Column(nullable = false, length = 20)
     private String cpf;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "class_id", referencedColumnName = "id")
-    private Class team;
-
+    @Column(nullable = false)
+    private Long class_id;
 
 }
