@@ -43,3 +43,76 @@ $  Executar a classe TomorrowApplication.java
 
 ## Rotas
 
+### 🧑🏽‍🎓 Student
+
+> Post : Cadastrar Estudante `http://localhost:8080/students/create`
+
+```bash
+{
+    "name": "Alfredo Ribeiro",
+    "phone": "819883-05819",
+    "address": "rua dos alfeneiros",
+    "cpf": "145.244.490-00",
+    "class_id": 1
+}
+
+```
+
+> Get : Listar todos os Estudantes `http://localhost:8080/students/list`
+
+> Get : Listar  um Estudante `http://localhost:8080/students/find/id/{id}`
+
+> Put : Atualizar  um Estudante `http://localhost:8080/students/update/id/{id}`
+
+> Delete : Deletar  um Estudante `http://localhost:8080/students/delete/id/{id}`
+
+
+### 👨‍🏫 Teacher
+
+>Post: Cadastrar Professor `http://localhost:8080/teacher/create`
+
+```bash
+{
+    "name": "Alfredo Ribeiro",
+    "phone": "819883-05819",
+    "hourlyRate": 150.56
+}
+
+```
+
+> Get : Listar todos os Professores `http://localhost:8080/teacher/list`
+
+> Get : Listar  um Professor `http://localhost:8080/teacher/find/id/{id}`
+
+> Put : Atualizar  um Professor `http://localhost:8080/teacher/update/id/{id}`
+
+> Delete : Deletar  um Professor `http://localhost:8080/students/{id}`
+
+### 📚 Course
+
+>Post: Cadastrar Curso `http://localhost:8080/courses/create`
+
+```bash
+{
+    "course_name": "Programação Avançada",
+    "classWorkload": 300.10,
+    "totalWorkload": 3000,
+    "shift": "Noite",
+    "value": 80,
+    "monday": 0,
+    "tuesday": 0,
+    "wednesday": 0,
+    "thursday": 1,
+    "friday": 1,
+    "saturday": 0
+}
+
+```
+
+> Get : Listar todos os Professores `http://localhost:8080/courses/list`
+
+> Get : Listar  um Professor `http://localhost:8080/courses/find/id/{id}`
+
+> Put : Atualizar  um Professor `http://localhost:8080/courses/update/id/{id}`
+
+> Delete : Deletar  um Professor `http://localhost:8080/courses/delete/id/{id}`
