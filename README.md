@@ -109,10 +109,42 @@ $  Executar a classe TomorrowApplication.java
 
 ```
 
-> Get : Listar todos os Professores `http://localhost:8080/courses/list`
+> Get : Listar todos os Cursos `http://localhost:8080/courses/list`
 
-> Get : Listar  um Professor `http://localhost:8080/courses/find/id/{id}`
+> Get : Listar  um Curso `http://localhost:8080/courses/find/id/{id}`
 
-> Put : Atualizar  um Professor `http://localhost:8080/courses/update/id/{id}`
+> Put : Atualizar  um Curso `http://localhost:8080/courses/update/id/{id}`
 
-> Delete : Deletar  um Professor `http://localhost:8080/courses/delete/id/{id}`
+> Delete : Deletar  um Curso `http://localhost:8080/courses/delete/id/{id}`
+
+### Lead
+
+> Post: Cadastrar Curso `http://localhost:8080/lead/create`
+
+```bash
+
+
+```
+
+> Get : Listar todos os Cursos `http://localhost:8080/lead/list`
+
+> Get : Listar  um Curso `http://localhost:8080/lead/find/id/{id}`
+
+> Put : Atualizar  um Curso `http://localhost:8080/lead/update/id/{id}`
+
+> Delete : Deletar  um Curso `http://localhost:8080/lead/{id}`
+
+
+## Contributors 🍷🗿
+
+
+* [Mateus Henrique Candido dos Santos - 01426871]()
+* [Edson de Araújo Junior - 01489468]()
+* [Geovanna Larissa Marrocos de Lima - 01472003]()
+* [Dayvson Henrique Silva de Assis - 01471232]()
+* [Lucas Crespo Rodrigues - 01419654]()
+* [Gustavo Henrique de Souza Silva - 01100114]()
+
+
+
+
