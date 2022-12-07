@@ -12,6 +12,8 @@ O projeto está sendo desenvolvido utilizando as seguintes tecnologias:
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original-wordmark.svg" height="160px" />
   <img src="https://github.com/EdsoonJr/EdsoonJr/blob/main/postman.svg" height="150px"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" height="160px" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg" height="160px" />
+          
 </p>
 
 
@@ -42,6 +44,20 @@ $  Executar a classe TomorrowApplication.java
 
 
 ## Rotas
+
+### 👤 User
+
+> Post : Cadastrar Usuário `http://localhost:8080/users/create`
+
+```bash
+{
+   "login": "mateushcds",
+   "password": "327723",
+   "profile": "S",
+   "status": "A"
+}
+
+```
 
 ### 🧑🏽‍🎓 Student
 
