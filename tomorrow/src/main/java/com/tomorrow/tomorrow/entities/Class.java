@@ -20,14 +20,19 @@ public class Class {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Long course_id;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "course_id")
+    private Course course_id;
 
-    @Column(nullable = false)
-    private Long teacher_id;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher_id;
 
     @Column(nullable = false)
     private Double value;
 
     //OneToMany Membership
+    @OneToMany(mappedBy = "class_id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Student> students;
+
 }

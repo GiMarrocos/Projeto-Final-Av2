@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Getter
@@ -14,15 +16,15 @@ import javax.persistence.Table;
 @Table
 public class ClassDay {
 
-    @EqualsAndHashCode.Include
-    @Column(nullable = false)
-    private Long course_id;
+    @OneToOne
+    @JoinColumn(name = "course_id_course")
+    private Course course_id_course;
 
     @Column(nullable = false)
     private Integer classDate;
 
-    public ClassDay(Long course_id, ClassStatus classDate) {
-        this.course_id = course_id;
+    public ClassDay(Course course_id, ClassStatus classDate) {
+        this.course_id_course = course_id;
         setClassDate(classDate);
     }
 

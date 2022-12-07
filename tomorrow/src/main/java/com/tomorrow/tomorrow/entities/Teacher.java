@@ -1,5 +1,6 @@
 package com.tomorrow.tomorrow.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -31,6 +32,7 @@ public class Teacher {
     private Double hourlyRate;
 
     //OneToMany Membership
+    @JsonIgnore
     @OneToMany(mappedBy = "teacher_id", fetch = FetchType.LAZY)
     private List<Class> classes = new ArrayList<>();
 

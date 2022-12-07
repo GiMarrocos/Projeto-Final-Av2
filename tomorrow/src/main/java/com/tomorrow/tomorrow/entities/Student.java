@@ -35,7 +35,8 @@ public class Student implements Serializable {
     @Column(nullable = false, length = 20)
     private String cpf;
 
-    @Column(nullable = false)
-    private Long class_id;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "class_id")
+    private Class class_id;
 
 }
