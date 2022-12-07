@@ -122,8 +122,14 @@ $  Executar a classe TomorrowApplication.java
 > Post: Cadastrar Curso `http://localhost:8080/lead/create`
 
 ```bash
-
-
+{
+   "name": "Alfredo Ribeiro",
+   "phone": "819883-05819",
+   "dateRegister": 
+   "status_2" :
+   "newDateContact":
+   "observation" :
+}
 ```
 
 > Get : Listar todos os Cursos `http://localhost:8080/lead/list`
@@ -138,12 +144,12 @@ $  Executar a classe TomorrowApplication.java
 ## Contributors 🍷🗿
 
 
-* [Mateus Henrique Candido dos Santos - 01426871]()
-* [Edson de Araújo Junior - 01489468]()
-* [Geovanna Larissa Marrocos de Lima - 01472003]()
-* [Dayvson Henrique Silva de Assis - 01471232]()
+* [Mateus Henrique Candido dos Santos - 01426871](https://github.com/MateusHCandido)
+* [Edson de Araújo Junior - 01489468](https://github.com/EdsoonJr)
+* [Geovanna Larissa Marrocos de Lima - 01472003](https://github.com/GiMarrocos)
+* [Dayvson Henrique Silva de Assis - 01471232](https://github.com/dayvson-henriquee)
 * [Lucas Crespo Rodrigues - 01419654]()
-* [Gustavo Henrique de Souza Silva - 01100114]()
+* [Gustavo Henrique de Souza Silva - 01100114](https://github.com/ghdss26)
 
 
 
